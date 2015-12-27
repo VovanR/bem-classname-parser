@@ -12,7 +12,7 @@ const parsers = {
 		 * @param {String} source
 		 * @return {String}
 		 */
-		getName: source => {
+		getName: function (source) {
 			var result = source;
 
 			if (/_/.test(source)) {
@@ -200,7 +200,7 @@ module.exports = {
 		if (!parsedCache.hasOwnProperty(source)) {
 			result = {};
 
-			TERMS.forEach(term => {
+			TERMS.forEach(function (term) {
 				var parse = parsers[term];
 				result[term] = {
 					name: parse.getName(source)
