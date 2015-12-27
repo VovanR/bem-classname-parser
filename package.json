@@ -1,0 +1,30 @@
+{
+  "name": "bem-classname-parser",
+  "version": "0.0.0",
+  "description": "Parse Block Element Modifier from `block__elem_mod`, `block__elem--mod` etc.",
+  "license": "MIT",
+  "repository": "VovanR/bem-classname-parser",
+  "author": "Vladimir Rodkin <mail@vovanr.com> (http://vovanr.com/)",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "prepush": "npm test",
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    ""
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^0.8.0",
+    "deep-equal": "^1.0.1",
+    "fs": "0.0.2",
+    "husky": "^0.10.2",
+    "js-yaml": "^3.4.6",
+    "xo": "^0.12.1"
+  }
+}
