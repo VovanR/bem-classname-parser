@@ -16,7 +16,7 @@
     "index.js"
   ],
   "keywords": [
-    ""
+    "bem", "class", "classname", "parser", "block", "element", "modifier", "utility"
   ],
   "dependencies": {},
   "devDependencies": {
