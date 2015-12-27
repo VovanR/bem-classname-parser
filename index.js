@@ -1,9 +1,3 @@
-/*
- * bemstyla
- * Copyright(c) 2015 Vladimir Rodkin <mail@vovanr.com>
- * MIT Licensed
- */
-
 const TERMS = ['block', 'bmod', 'elem', 'emod'];
 
 // For Parser memoization
