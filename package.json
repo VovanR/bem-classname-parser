@@ -9,6 +9,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "prepush": "npm test",
     "test": "xo && ava"
   },
@@ -16,15 +17,24 @@
     "index.js"
   ],
   "keywords": [
-    "bem", "class", "classname", "parser", "block", "element", "modifier", "utility"
+    "bem",
+    "block",
+    "class",
+    "classname",
+    "element",
+    "modifier",
+    "parser",
+    "utility"
   ],
   "dependencies": {},
   "devDependencies": {
     "ava": "^0.8.0",
+    "coveralls": "^2.11.6",
     "deep-equal": "^1.0.1",
     "fs": "0.0.2",
     "husky": "^0.10.2",
     "js-yaml": "^3.4.6",
+    "nyc": "^5.0.1",
     "xo": "^0.12.1"
   }
 }
