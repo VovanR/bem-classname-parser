@@ -1,0 +1,7 @@
+{
+  "commitMessage": "chore(ver): v%s",
+  "scripts": {
+    "postcommit": "git push && git push --tags",
+    "precommit": "npm run changelog && git add CHANGELOG.md"
+  }
+}
