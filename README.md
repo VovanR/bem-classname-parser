@@ -20,7 +20,7 @@ npm install --global bem-classname-parser
 ```javascript
 var bemClassnameParser = require('bem-classname-parser');
 
-console.log(bemClassnameParser.parse('block__elem_mod-name_mod-value');
+console.log(bemClassnameParser.parse('block__elem_mod-name_mod-value'));
 // {
 //   block: {
 //     name: 'block'
@@ -41,7 +41,7 @@ console.log(bemClassnameParser.parse('block__elem_mod-name_mod-value');
 // }
 
 
-console.log(bemClassnameParser.parse('block--mod');
+console.log(bemClassnameParser.parse('block--mod'));
 // {
 //   block: {
 //     name: 'block'
