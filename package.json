@@ -28,13 +28,15 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "ava": "^0.8.0",
+    "ava": "^0.9.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-register": "^6.3.13",
     "coveralls": "^2.11.6",
     "deep-equal": "^1.0.1",
     "fs": "0.0.2",
     "husky": "^0.10.2",
     "js-yaml": "^3.4.6",
-    "nyc": "^4.0.1",
+    "nyc": "^5.2.0",
     "xo": "^0.12.1"
   }
 }
