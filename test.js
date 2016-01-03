@@ -1,5 +1,5 @@
 import test from 'ava';
-import 'babel-core/register';
+import 'babel-register';
 import deepEqual from 'deep-equal';
 import yaml from 'js-yaml';
 import fs from 'fs';
