@@ -1,5 +1,3 @@
-const TERMS = ['block', 'bmod', 'elem', 'emod'];
-
 // For Parser memoization
 var parsedCache = {};
 
@@ -77,7 +75,7 @@ const parsers = {
 		 * @param {String} source
 		 * @return {String}
 		 */
-		getValue: function (source) {
+		getVal: function (source) {
 			var result = '';
 
 			if (/_/.test(source)) {
@@ -171,7 +169,7 @@ const parsers = {
 		 * @param {String} source
 		 * @return {String}
 		 */
-		getValue: function (source) {
+		getVal: function (source) {
 			var result = '';
 
 			if (/__/.test(source)) {
@@ -198,22 +196,22 @@ module.exports = {
 		var result;
 
 		if (!parsedCache.hasOwnProperty(source)) {
-			result = {};
-
-			TERMS.forEach(function (term) {
-				var parse = parsers[term];
-				result[term] = {
-					name: parse.getName(source)
-				};
-
-				if (parse.getSep) {
-					result[term].sep = parse.getSep(source);
+			result = {
+				name: parsers.block.getName(source),
+				mod: {
+					name: parsers.bmod.getName(source),
+					val: parsers.bmod.getVal(source),
+					sep: parsers.bmod.getSep(source)
+				},
+				elem: {
+					name: parsers.elem.getName(source),
+					mod: {
+						name: parsers.emod.getName(source),
+						val: parsers.emod.getVal(source),
+						sep: parsers.emod.getSep(source)
+					}
 				}
-
-				if (parse.getValue) {
-					result[term].value = parse.getValue(source);
-				}
-			});
+			};
 
 			parsedCache[source] = result;
 		}
