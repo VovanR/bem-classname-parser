@@ -197,11 +197,13 @@ module.exports = {
 
 		if (!parsedCache.hasOwnProperty(source)) {
 			result = {
-				name: parsers.block.getName(source),
-				mod: {
-					name: parsers.bmod.getName(source),
-					val: parsers.bmod.getVal(source),
-					sep: parsers.bmod.getSep(source)
+				block: {
+					name: parsers.block.getName(source),
+					mod: {
+						name: parsers.bmod.getName(source),
+						val: parsers.bmod.getVal(source),
+						sep: parsers.bmod.getSep(source)
+					}
 				},
 				elem: {
 					name: parsers.elem.getName(source),

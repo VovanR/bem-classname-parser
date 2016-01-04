@@ -18,8 +18,7 @@ test('return parsed JSON object', t => {
 		t.true(deepEqual(
 			fn.parse(data.data),
 			{
-				name: data.name,
-				mod: data.mod,
+				block: data.block,
 				elem: data.elem
 			}
 		));

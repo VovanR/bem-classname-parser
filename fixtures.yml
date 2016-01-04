@@ -1,9 +1,10 @@
 - data: ''
-  name: ''
-  mod:
+  block:
     name: ''
-    val: ''
-    sep: ''
+    mod:
+      name: ''
+      val: ''
+      sep: ''
   elem:
     name: ''
     mod:
@@ -12,11 +13,12 @@
       sep: ''
 
 - data: block
-  name: block
-  mod:
-    name: ''
-    val: ''
-    sep: ''
+  block:
+    name: block
+    mod:
+      name: ''
+      val: ''
+      sep: ''
   elem:
     name: ''
     mod:
@@ -25,11 +27,12 @@
       sep: ''
 
 - data: block_mod
-  name: block
-  mod:
-    name: mod
-    val: ''
-    sep: _
+  block:
+    name: block
+    mod:
+      name: mod
+      val: ''
+      sep: _
   elem:
     name: ''
     mod:
@@ -38,11 +41,12 @@
       sep: ''
 
 - data: block_mod-name_mod-val
-  name: block
-  mod:
-    name: mod-name
-    val: mod-val
-    sep: _
+  block:
+    name: block
+    mod:
+      name: mod-name
+      val: mod-val
+      sep: _
   elem:
     name: ''
     mod:
@@ -51,11 +55,12 @@
       sep: ''
 
 - data: block__elem
-  name: block
-  mod:
-    name: ''
-    val: ''
-    sep: ''
+  block:
+    name: block
+    mod:
+      name: ''
+      val: ''
+      sep: ''
   elem:
     name: elem
     mod:
@@ -64,11 +69,12 @@
       sep: ''
 
 - data: block__elem_mod
-  name: block
-  mod:
-    name: ''
-    val: ''
-    sep: ''
+  block:
+    name: block
+    mod:
+      name: ''
+      val: ''
+      sep: ''
   elem:
     name: elem
     mod:
@@ -77,11 +83,12 @@
       sep: _
 
 - data: block__elem_mod-name_mod-val
-  name: block
-  mod:
-    name: ''
-    val: ''
-    sep: ''
+  block:
+    name: block
+    mod:
+      name: ''
+      val: ''
+      sep: ''
   elem:
     name: elem
     mod:
@@ -90,11 +97,12 @@
       sep: _
 
 - data: foo__bar_baz
-  name: foo
-  mod:
-    name: ''
-    val: ''
-    sep: ''
+  block:
+    name: foo
+    mod:
+      name: ''
+      val: ''
+      sep: ''
   elem:
     name: bar
     mod:
@@ -103,11 +111,12 @@
       sep: _
 
 - data: block_mod__elem
-  name: block
-  mod:
-    name: ''
-    val: ''
-    sep: ''
+  block:
+    name: block
+    mod:
+      name: ''
+      val: ''
+      sep: ''
   elem:
     name: elem
     mod:
@@ -116,11 +125,12 @@
       sep: ''
 
 - data: block_mod__elem_mod
-  name: block
-  mod:
-    name: ''
-    val: ''
-    sep: ''
+  block:
+    name: block
+    mod:
+      name: ''
+      val: ''
+      sep: ''
   elem:
     name: elem
     mod:
@@ -129,11 +139,12 @@
       sep: _
 
 - data: block_mod__elem_mod-name_mod-val
-  name: block
-  mod:
-    name: ''
-    val: ''
-    sep: ''
+  block:
+    name: block
+    mod:
+      name: ''
+      val: ''
+      sep: ''
   elem:
     name: elem
     mod:
@@ -142,11 +153,12 @@
       sep: _
 
 - data: block_mod-name_mod-val__elem
-  name: block
-  mod:
-    name: ''
-    val: ''
-    sep: ''
+  block:
+    name: block
+    mod:
+      name: ''
+      val: ''
+      sep: ''
   elem:
     name: elem
     mod:
@@ -155,11 +167,12 @@
       sep: ''
 
 - data: block_mod-name_mod-val__elem_mod
-  name: block
-  mod:
-    name: ''
-    val: ''
-    sep: ''
+  block:
+    name: block
+    mod:
+      name: ''
+      val: ''
+      sep: ''
   elem:
     name: elem
     mod:
@@ -168,11 +181,12 @@
       sep: _
 
 - data: block_mod-name_mod-val__elem_mod-name_mod-val
-  name: block
-  mod:
-    name: ''
-    val: ''
-    sep: ''
+  block:
+    name: block
+    mod:
+      name: ''
+      val: ''
+      sep: ''
   elem:
     name: elem
     mod:
@@ -181,11 +195,12 @@
       sep: _
 
 - data: block--mod
-  name: block
-  mod:
-    name: mod
-    val: ''
-    sep: --
+  block:
+    name: block
+    mod:
+      name: mod
+      val: ''
+      sep: --
   elem:
     name: ''
     mod:
@@ -194,11 +209,12 @@
       sep: ''
 
 - data: block__elem--mod
-  name: block
-  mod:
-    name: ''
-    val: ''
-    sep: ''
+  block:
+    name: block
+    mod:
+      name: ''
+      val: ''
+      sep: ''
   elem:
     name: elem
     mod:
