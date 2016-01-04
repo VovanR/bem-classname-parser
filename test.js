@@ -19,9 +19,7 @@ test('return parsed JSON object', t => {
 			fn.parse(data.data),
 			{
 				block: data.block,
-				bmod: data.bmod,
-				elem: data.elem,
-				emod: data.emod
+				elem: data.elem
 			}
 		));
 	});
