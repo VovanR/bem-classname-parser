@@ -28,10 +28,10 @@ console.log(bemClassnameParser.parse('block__elem_mod-name_mod-value'));
 //       name: '',
 //       val: '',
 //       sep: ''
-//     },
+//     }
 //   },
 //   elem: {
-//     name: 'elem'
+//     name: 'elem',
 //     mod: {
 //       name: 'mod-name',
 //       val: 'mod-value',
@@ -49,10 +49,10 @@ console.log(bemClassnameParser.parse('block--mod'));
 //       name: 'mod',
 //       value: '',
 //       sep: '--'
-//     },
+//     }
 //   },
 //   elem: {
-//     name: ''
+//     name: '',
 //     mod: {
 //       name: '',
 //       value: '',
