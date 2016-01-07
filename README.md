@@ -23,15 +23,10 @@ var bemClassnameParser = require('bem-classname-parser');
 console.log(bemClassnameParser.parse('block__elem_mod-name_mod-value'));
 // {
 //   block: {
-//     name: 'block',
-//     mod: {
-//       name: '',
-//       val: '',
-//       sep: ''
-//     },
+//     name: 'block'
 //   },
 //   elem: {
-//     name: 'elem'
+//     name: 'elem',
 //     mod: {
 //       name: 'mod-name',
 //       val: 'mod-value',
@@ -47,16 +42,8 @@ console.log(bemClassnameParser.parse('block--mod'));
 //     name: 'block',
 //     mod: {
 //       name: 'mod',
-//       value: '',
+//       val: null,
 //       sep: '--'
-//     },
-//   },
-//   elem: {
-//     name: ''
-//     mod: {
-//       name: '',
-//       value: '',
-//       sep: ''
 //     }
 //   }
 // }
