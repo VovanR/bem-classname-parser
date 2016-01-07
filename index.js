@@ -1,189 +1,77 @@
-// For Parser memoization
-var parsedCache = {};
+// `item_mod` -> `item`
+// `item--mod` -> `item`
+function parseName(source) {
+	var result = source;
+	var sep = parseModSep(source);
 
-const parsers = {
-	block: {
-		/**
-		 * Block name
-		 * `block__elem` -> `block`
-		 *
-		 * @param {String} source
-		 * @return {String}
-		 */
-		getName: function (source) {
-			var result = source;
+	if (sep) {
+		result = source.split(sep)[0];
+	}
 
-			if (/_/.test(source)) {
-				result = source.split('_')[0];
-			} else if (/--/.test(source)) {
-				result = source.split('--')[0];
-			}
+	return result;
+}
 
-			return result;
-		}
-	},
+// `item_mod` -> `mod`
+// `item--mod` -> `mod`
+function parseModName(source) {
+	var result = '';
+	var sep = parseModSep(source);
+	var div;
 
-	bmod: {
-		/**
-		 * Block mod name
-		 * `block_mod-name_mod-val` -> `mod-name`
-		 * `block--mod-name` -> `mod-name`
-		 *
-		 * @param {String} source
-		 * @return {String}
-		 */
-		getName: function (source) {
-			var result = '';
-
-			if (!/__/.test(source)) {
-				if (/_/.test(source)) {
-					result = source.split('_')[1];
-				} else if (/--/.test(source)) {
-					result = source.split('--')[1];
-				}
-			}
-
-			return result;
-		},
-
-		/**
-		 * Block mod separator
-		 * `block_mod-name` -> `_`
-		 * `block--mod-name` -> `--`
-		 *
-		 * @param {String} source
-		 * @return {String}
-		 */
-		getSep: function (source) {
-			var result = '';
-
-			if (!/__/.test(source)) {
-				if (/_/.test(source)) {
-					result = '_';
-				} else if (/--/.test(source)) {
-					result = '--';
-				}
-			}
-
-			return result;
-		},
-
-		/**
-		 * Block mod value
-		 * `block_mod-name_mod-val` -> `mod-val`
-		 *
-		 * @param {String} source
-		 * @return {String}
-		 */
-		getVal: function (source) {
-			var result = '';
-
-			if (/_/.test(source)) {
-				if (!/__/.test(source)) {
-					result = source.split('_')[2] || '';
-				}
-			}
-
-			return result;
-		}
-	},
-
-	elem: {
-		/**
-		 * Elem name
-		 * `block__elem` -> `elem`
-		 *
-		 * @param {String} source
-		 * @return {String}
-		 */
-		getName: function (source) {
-			var result = '';
-
-			if (/__/.test(source)) {
-				result = source.split('__')[1];
-			}
-
-			if (/_/.test(result)) {
-				result = result.split('_')[0];
-			} else if (/--/.test(result)) {
-				result = result.split('--')[0];
-			}
-
-			return result;
-		}
-	},
-
-	emod: {
-		/**
-		 * Elem mod name
-		 * `block__elem_mod-name_mod-val` -> `mod-name`
-		 * `block__elem--mod-name` -> `mod-name`
-		 *
-		 * @param {String} source
-		 * @return {String}
-		 */
-		getName: function (source) {
-			var result = '';
-
-			if (/__/.test(source)) {
-				source = source.split('__')[1];
-
-				if (/_/.test(source)) {
-					result = source.split('_')[1];
-				} else if (/--/.test(source)) {
-					result = source.split('--')[1];
-				}
-			}
-
-			return result;
-		},
-
-		/**
-		 * Elem mod separator
-		 * `block__elem_mod-name` -> `_`
-		 * `block__elem--mod-name` -> `--`
-		 *
-		 * @param {String} source
-		 * @return {String}
-		 */
-		getSep: function (source) {
-			var result = '';
-
-			if (/__/.test(source)) {
-				source = source.split('__')[1];
-
-				if (/_/.test(source)) {
-					result = '_';
-				} else if (/--/.test(source)) {
-					result = '--';
-				}
-			}
-
-			return result;
-		},
-
-		/**
-		 * Elem mod value
-		 * `block__elem_mod-name_mod-val` -> `mod-val`
-		 *
-		 * @param {String} source
-		 * @return {String}
-		 */
-		getVal: function (source) {
-			var result = '';
-
-			if (/__/.test(source)) {
-				source = source.split('__')[1];
-
-				if (/_/.test(source)) {
-					result = source.split('_')[2] || '';
-				}
-			}
-
-			return result;
+	if (sep) {
+		div = source.split(sep);
+		if (div.length > 1) {
+			result = div[1];
 		}
 	}
-};
+
+	return result;
+}
+
+// `item_mod_val` -> `val`
+function parseModVal(source) {
+	var result = '';
+	var div = source.split('_');
+
+	if (div.length > 2) {
+		result = div[2];
+	}
+
+	return result;
+}
+
+// `item_mod` -> `_`
+// `item--mod` -> `--`
+function parseModSep(source) {
+	var result = '';
+
+	if (/_/.test(source)) {
+		result = '_';
+	} else if (/--/.test(source)) {
+		result = '--';
+	}
+
+	return result;
+}
+
+function parseMod(source) {
+	var result = null;
+	var sep = parseModSep(source);
+	var name;
+
+	if (sep) {
+		name = parseModName(source);
+		if (name) {
+			result = {
+				name: name,
+				val: parseModVal(source) || null,
+				sep: sep
+			};
+		}
+	}
+
+	return result;
+}
 
 module.exports = {
 	/**
@@ -194,41 +82,37 @@ module.exports = {
 	 */
 	parse: function (source) {
 		var result = {};
-		var c;
 
-		if (!parsedCache.hasOwnProperty(source)) {
-			c = parsers.block.getName(source);
-			if (c) {
-				result.block = {
-					name: c
-				};
-				c = parsers.bmod.getName(source);
-				if (c) {
-					result.block.mod = {
-						name: c,
-						val: parsers.bmod.getVal(source) || null,
-						sep: parsers.bmod.getSep(source)
-					};
-				}
-				c = parsers.elem.getName(source);
-				if (c) {
-					result.elem = {
-						name: c
-					};
-					c = parsers.emod.getName(source);
-					if (c) {
-						result.elem.mod = {
-							name: c,
-							val: parsers.emod.getVal(source) || null,
-							sep: parsers.emod.getSep(source)
-						};
-					}
-				}
-			}
-
-			parsedCache[source] = result;
+		if (!source) {
+			return result;
 		}
 
-		return parsedCache[source];
+		// Separate block and elem
+		var div = source.split('__');
+
+		var item = div[0];
+		var part = 'block';
+
+		result[part] = {
+			name: parseName(item)
+		};
+
+		// If elem
+		if (div.length > 1) {
+			item = div[1];
+			part = 'elem';
+
+			result[part] = {
+				name: parseName(item)
+			};
+		}
+
+		// Parse mod
+		var mod = parseMod(item);
+		if (mod) {
+			result[part].mod = mod;
+		}
+
+		return result;
 	}
 };

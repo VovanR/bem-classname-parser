@@ -141,3 +141,8 @@
         name: mod
         val: null
         sep: --
+
+- input: block_
+  output:
+    block:
+      name: block
