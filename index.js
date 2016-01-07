@@ -193,27 +193,38 @@ module.exports = {
 	 * @return {Object}
 	 */
 	parse: function (source) {
-		var result;
+		var result = {};
+		var c;
 
 		if (!parsedCache.hasOwnProperty(source)) {
-			result = {
-				block: {
-					name: parsers.block.getName(source),
-					mod: {
-						name: parsers.bmod.getName(source),
-						val: parsers.bmod.getVal(source),
+			c = parsers.block.getName(source);
+			if (c) {
+				result.block = {
+					name: c
+				};
+				c = parsers.bmod.getName(source);
+				if (c) {
+					result.block.mod = {
+						name: c,
+						val: parsers.bmod.getVal(source) || null,
 						sep: parsers.bmod.getSep(source)
-					}
-				},
-				elem: {
-					name: parsers.elem.getName(source),
-					mod: {
-						name: parsers.emod.getName(source),
-						val: parsers.emod.getVal(source),
-						sep: parsers.emod.getSep(source)
+					};
+				}
+				c = parsers.elem.getName(source);
+				if (c) {
+					result.elem = {
+						name: c
+					};
+					c = parsers.emod.getName(source);
+					if (c) {
+						result.elem.mod = {
+							name: c,
+							val: parsers.emod.getVal(source) || null,
+							sep: parsers.emod.getSep(source)
+						};
 					}
 				}
-			};
+			}
 
 			parsedCache[source] = result;
 		}
