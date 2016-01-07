@@ -15,12 +15,6 @@ test('is object', t => {
 test('return parsed JSON object', t => {
 	t.plan(fixtures.length);
 	fixtures.forEach(data => {
-		t.true(deepEqual(
-			fn.parse(data.data),
-			{
-				block: data.block,
-				elem: data.elem
-			}
-		));
+		t.true(deepEqual(fn.parse(data.input), data.output));
 	});
 });

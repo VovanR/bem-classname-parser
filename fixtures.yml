@@ -1,223 +1,143 @@
-- data: ''
-  block:
-    name: ''
-    mod:
-      name: ''
-      val: ''
-      sep: ''
-  elem:
-    name: ''
-    mod:
-      name: ''
-      val: ''
-      sep: ''
+- input: ''
+  output: {}
 
-- data: block
-  block:
-    name: block
-    mod:
-      name: ''
-      val: ''
-      sep: ''
-  elem:
-    name: ''
-    mod:
-      name: ''
-      val: ''
-      sep: ''
+- input: block
+  output:
+    block:
+      name: block
 
-- data: block_mod
-  block:
-    name: block
-    mod:
-      name: mod
-      val: ''
-      sep: _
-  elem:
-    name: ''
-    mod:
-      name: ''
-      val: ''
-      sep: ''
+- input: block_mod
+  output:
+    block:
+      name: block
+      mod:
+        name: mod
+        val: null
+        sep: _
 
-- data: block_mod-name_mod-val
-  block:
-    name: block
-    mod:
-      name: mod-name
-      val: mod-val
-      sep: _
-  elem:
-    name: ''
-    mod:
-      name: ''
-      val: ''
-      sep: ''
+- input: block_mod-name_mod-val
+  output:
+    block:
+      name: block
+      mod:
+        name: mod-name
+        val: mod-val
+        sep: _
 
-- data: block__elem
-  block:
-    name: block
-    mod:
-      name: ''
-      val: ''
-      sep: ''
-  elem:
-    name: elem
-    mod:
-      name: ''
-      val: ''
-      sep: ''
+- input: block__elem
+  output:
+    block:
+      name: block
+    elem:
+      name: elem
 
-- data: block__elem_mod
-  block:
-    name: block
-    mod:
-      name: ''
-      val: ''
-      sep: ''
-  elem:
-    name: elem
-    mod:
-      name: mod
-      val: ''
-      sep: _
+- input: block__elem_mod
+  output:
+    block:
+      name: block
+    elem:
+      name: elem
+      mod:
+        name: mod
+        val: null
+        sep: _
 
-- data: block__elem_mod-name_mod-val
-  block:
-    name: block
-    mod:
-      name: ''
-      val: ''
-      sep: ''
-  elem:
-    name: elem
-    mod:
-      name: mod-name
-      val: mod-val
-      sep: _
+- input: block__elem_mod-name_mod-val
+  output:
+    block:
+      name: block
+    elem:
+      name: elem
+      mod:
+        name: mod-name
+        val: mod-val
+        sep: _
 
-- data: foo__bar_baz
-  block:
-    name: foo
-    mod:
-      name: ''
-      val: ''
-      sep: ''
-  elem:
-    name: bar
-    mod:
-      name: baz
-      val: ''
-      sep: _
+- input: foo__bar_baz
+  output:
+    block:
+      name: foo
+    elem:
+      name: bar
+      mod:
+        name: baz
+        val: null
+        sep: _
 
-- data: block_mod__elem
-  block:
-    name: block
-    mod:
-      name: ''
-      val: ''
-      sep: ''
-  elem:
-    name: elem
-    mod:
-      name: ''
-      val: ''
-      sep: ''
+- input: block_mod__elem
+  output:
+    block:
+      name: block
+    elem:
+      name: elem
 
-- data: block_mod__elem_mod
-  block:
-    name: block
-    mod:
-      name: ''
-      val: ''
-      sep: ''
-  elem:
-    name: elem
-    mod:
-      name: mod
-      val: ''
-      sep: _
+- input: block_mod__elem_mod
+  output:
+    block:
+      name: block
+    elem:
+      name: elem
+      mod:
+        name: mod
+        val: null
+        sep: _
 
-- data: block_mod__elem_mod-name_mod-val
-  block:
-    name: block
-    mod:
-      name: ''
-      val: ''
-      sep: ''
-  elem:
-    name: elem
-    mod:
-      name: mod-name
-      val: mod-val
-      sep: _
+- input: block_mod__elem_mod-name_mod-val
+  output:
+    block:
+      name: block
+    elem:
+      name: elem
+      mod:
+        name: mod-name
+        val: mod-val
+        sep: _
 
-- data: block_mod-name_mod-val__elem
-  block:
-    name: block
-    mod:
-      name: ''
-      val: ''
-      sep: ''
-  elem:
-    name: elem
-    mod:
-      name: ''
-      val: ''
-      sep: ''
+- input: block_mod-name_mod-val__elem
+  output:
+    block:
+      name: block
+    elem:
+      name: elem
 
-- data: block_mod-name_mod-val__elem_mod
-  block:
-    name: block
-    mod:
-      name: ''
-      val: ''
-      sep: ''
-  elem:
-    name: elem
-    mod:
-      name: mod
-      val: ''
-      sep: _
+- input: block_mod-name_mod-val__elem_mod
+  output:
+    block:
+      name: block
+    elem:
+      name: elem
+      mod:
+        name: mod
+        val: null
+        sep: _
 
-- data: block_mod-name_mod-val__elem_mod-name_mod-val
-  block:
-    name: block
-    mod:
-      name: ''
-      val: ''
-      sep: ''
-  elem:
-    name: elem
-    mod:
-      name: mod-name
-      val: mod-val
-      sep: _
+- input: block_mod-name_mod-val__elem_mod-name_mod-val
+  output:
+    block:
+      name: block
+    elem:
+      name: elem
+      mod:
+        name: mod-name
+        val: mod-val
+        sep: _
 
-- data: block--mod
-  block:
-    name: block
-    mod:
-      name: mod
-      val: ''
-      sep: --
-  elem:
-    name: ''
-    mod:
-      name: ''
-      val: ''
-      sep: ''
+- input: block--mod
+  output:
+    block:
+      name: block
+      mod:
+        name: mod
+        val: null
+        sep: --
 
-- data: block__elem--mod
-  block:
-    name: block
-    mod:
-      name: ''
-      val: ''
-      sep: ''
-  elem:
-    name: elem
-    mod:
-      name: mod
-      val: ''
-      sep: --
+- input: block__elem--mod
+  output:
+    block:
+      name: block
+    elem:
+      name: elem
+      mod:
+        name: mod
+        val: null
+        sep: --
