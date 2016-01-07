@@ -12,7 +12,7 @@
 ## Install
 
 ```sh
-npm install --global bem-classname-parser
+npm install --save bem-classname-parser
 ```
 
 ## Usage
@@ -35,7 +35,6 @@ console.log(bemClassnameParser.parse('block__elem_mod-name_mod-value'));
 //   }
 // }
 
-
 console.log(bemClassnameParser.parse('block--mod'));
 // {
 //   block: {
@@ -47,6 +46,9 @@ console.log(bemClassnameParser.parse('block--mod'));
 //     }
 //   }
 // }
+
+console.log(bemClassnameParser.parse(''));
+// {}
 ```
 
 ## License
