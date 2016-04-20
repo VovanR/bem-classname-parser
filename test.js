@@ -1,7 +1,7 @@
+import fs from 'fs';
 import test from 'ava';
 import deepEqual from 'deep-equal';
 import yaml from 'js-yaml';
-import fs from 'fs';
 import fn from './';
 
 const fixturesYaml = fs.readFileSync('./fixtures.yml', 'utf8');

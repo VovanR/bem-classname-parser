@@ -9,10 +9,9 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "prepush": "npm test",
     "test": "xo && nyc ava",
-    "tdd": "watch -p index.js -c ava"
+    "tdd": "ava --watch"
   },
   "files": [
     "index.js"
@@ -29,18 +28,17 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "ava": "^0.10.0",
+    "ava": "^0.14.0",
     "conventional-changelog-cli": "^1.1.1",
     "cz-conventional-changelog": "^1.1.5",
-    "coveralls": "^2.11.6",
+    "coveralls": "^2.11.9",
     "deep-equal": "^1.0.1",
     "fs": "0.0.2",
-    "husky": "^0.10.2",
-    "js-yaml": "^3.5.2",
+    "husky": "^0.11.4",
+    "js-yaml": "^3.6.0",
     "mversion": "^1.10.1",
-    "nyc": "^5.3.0",
-    "watch-cli": "^0.2.1",
-    "xo": "^0.12.1"
+    "nyc": "^6.4.0",
+    "xo": "^0.14.0"
   },
   "config": {
     "commitizen": {
