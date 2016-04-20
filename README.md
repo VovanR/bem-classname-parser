@@ -1,26 +1,28 @@
 # bem-classname-parser
 
+[![Commitizen friendly][commitizen-image]][commitizen-url]
+[![XO code style][codestyle-image]][codestyle-url]
+
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Coveralls Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
 [![DevDependency Status][depstat-dev-image]][depstat-dev-url]
-[![XO code style][codestyle-image]][codestyle-url]
 
 > Parse Block Element Modifier from `block__elem_mod`, `block__elem--mod` etc.
 
 ## Install
 
-```sh
+```
 npm install --save bem-classname-parser
 ```
 
 ## Usage
 
-```javascript
+```js
 var bemClassnameParser = require('bem-classname-parser');
 
-console.log(bemClassnameParser.parse('block__elem_mod-name_mod-value'));
+bemClassnameParser.parse('block__elem_mod-name_mod-value');
 // {
 //   block: {
 //     name: 'block'
@@ -35,7 +37,7 @@ console.log(bemClassnameParser.parse('block__elem_mod-name_mod-value'));
 //   }
 // }
 
-console.log(bemClassnameParser.parse('block--mod'));
+bemClassnameParser.parse('block--mod');
 // {
 //   block: {
 //     name: 'block',
@@ -47,12 +49,19 @@ console.log(bemClassnameParser.parse('block--mod'));
 //   }
 // }
 
-console.log(bemClassnameParser.parse(''));
+bemClassnameParser.parse('');
 // {}
 ```
 
 ## License
+
 MIT © [Vladimir Rodkin](https://github.com/VovanR)
+
+[commitizen-url]: http://commitizen.github.io/cz-cli/
+[commitizen-image]: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square
+
+[codestyle-url]: https://github.com/sindresorhus/xo
+[codestyle-image]: https://img.shields.io/badge/code_style-XO-5ed9c7.svg?style=flat-square
 
 [npm-url]: https://npmjs.org/package/bem-classname-parser
 [npm-image]: http://img.shields.io/npm/v/bem-classname-parser.svg?style=flat-square
@@ -68,6 +77,3 @@ MIT © [Vladimir Rodkin](https://github.com/VovanR)
 
 [depstat-dev-url]: https://david-dm.org/VovanR/bem-classname-parser
 [depstat-dev-image]: https://david-dm.org/VovanR/bem-classname-parser/dev-status.svg?style=flat-square
-
-[codestyle-url]: https://github.com/sindresorhus/xo
-[codestyle-image]: https://img.shields.io/badge/code_style-XO-5ed9c7.svg?style=flat-square
