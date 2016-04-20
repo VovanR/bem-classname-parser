@@ -11,7 +11,10 @@
   "scripts": {
     "prepush": "npm test",
     "test": "xo && nyc ava",
-    "tdd": "ava --watch"
+    "tdd": "ava --watch",
+    "release-patch": "mversion patch",
+    "release-minor": "mversion minor",
+    "release-major": "mversion major"
   },
   "files": [
     "index.js"
