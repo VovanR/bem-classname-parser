@@ -1,0 +1,67 @@
+.app {
+	display: flex;
+    height: 100%;
+    justify-content: center;
+	flex-direction: row;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.app__input {
+	display: flex;
+	flex: 3;
+	width: 50%;
+}
+
+.app__output {
+	display: flex;
+	flex: 2;
+	width: 50%;
+	overflow: auto;
+	background-color: #fbfbfb;
+}
+
+.app__output-content {
+	margin: auto;
+}
+
+.app__control {
+	box-sizing: border-box;
+	font-size: 200%;
+	font-family: monospace;
+	text-align: center;
+	padding: 1%;
+	background-color: #fff;
+	border: 2px solid #fff;
+	transition: border ease 0.15s;
+	outline: none;
+	min-width: 0;
+}
+
+.app__control:focus {
+	border-color: #ff3304;
+}
+
+.app__control_name_input {
+	width: 100%;
+}
+
+.app__json {
+}
+
+/* repository */
+.repo {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	font-size: 100%;
+	padding: 1em;
+	text-decoration: none;
+	opacity: 0.4;
+	color: #000;
+}
+
+.repo span {
+	text-decoration: underline;
+}
