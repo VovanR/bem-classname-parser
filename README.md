@@ -11,6 +11,8 @@
 
 > Parse Block Element Modifier from `block__elem_mod`, `block__elem--mod` etc.
 
+Demo: [vovanr.github.io/bem-classname-parser][demo]
+
 ## Install
 
 ```
@@ -56,6 +58,8 @@ bemClassnameParser.parse('');
 ## License
 
 MIT © [Vladimir Rodkin](https://github.com/VovanR)
+
+[demo]: https://vovanr.github.io/bem-classname-parser
 
 [commitizen-url]: http://commitizen.github.io/cz-cli/
 [commitizen-image]: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square

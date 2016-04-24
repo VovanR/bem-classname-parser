@@ -14,11 +14,13 @@
     "tdd": "ava --watch",
     "release-patch": "mversion patch",
     "release-minor": "mversion minor",
-    "release-major": "mversion major"
+    "release-major": "mversion major",
+    "deploy": "gh-pages-deploy"
   },
   "files": [
     "index.js"
   ],
+  "main": "index.js",
   "keywords": [
     "bem",
     "block",
@@ -33,8 +35,8 @@
   "devDependencies": {
     "ava": "^0.14.0",
     "conventional-changelog-cli": "^1.1.1",
-    "cz-conventional-changelog": "^1.1.6",
     "coveralls": "^2.11.9",
+    "cz-conventional-changelog": "^1.1.6",
     "husky": "^0.11.4",
     "js-yaml": "^3.6.0",
     "mversion": "^1.10.1",
@@ -45,5 +47,9 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "gh-pages-deploy": {
+    "staticpath": "example",
+    "noprompt": false
   }
 }

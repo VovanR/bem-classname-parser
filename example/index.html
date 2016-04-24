@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>bem-classname-parser</title>
+    <meta name="description" content="Parse Block Element Modifier from block__elem_mod, block__elem--mod etc.">
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jsonview/1.2.3/jquery.jsonview.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body class="app">
+
+<div class="app__input">
+	<input
+		class="app__control app__control_name_input"
+		value="block__elem_mod foo_bar"
+		type="text"
+		/>
+</div>
+
+<div class="app__output">
+	<div class="app__output-content">
+		<div class="app__json"></div>
+	</div>
+</div>
+
+<a class="repo" href="https://github.com/vovanr/bem-classname-parser">MIT&nbsp;©&nbsp;<span>Vladimir Rodkin</span></a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-jsonview/1.2.3/jquery.jsonview.min.js"></script>
+<script>window.module = {}</script>
+<script src="index.js"></script>
+<script>
+(function (bemClassnameParser) {
+	'use strict'
+
+	var inputControl = document.querySelector('.app__control_name_input')
+	var outputControl = document.querySelector('.app__json')
+
+	inputControl.addEventListener('input', renderResult)
+
+	function renderResult() {
+		var value = inputControl.value.trim()
+		var items = value.split(' ')
+		var json
+		if (items.length === 1) {
+			json = bemClassnameParser.parse(value)
+		} else {
+			json = items.map(item => {
+				return bemClassnameParser.parse(item)
+			})
+		}
+		$(outputControl).JSONView(json)
+	}
+
+	renderResult()
+
+})(window.module.exports)
+</script>
+
+</body>
+</html>
