@@ -1,6 +1,5 @@
 import fs from 'fs';
 import test from 'ava';
-import deepEqual from 'deep-equal';
 import yaml from 'js-yaml';
 import fn from './';
 
@@ -14,6 +13,6 @@ test('is object', t => {
 test('return parsed JSON object', t => {
 	t.plan(fixtures.length);
 	fixtures.forEach(data => {
-		t.true(deepEqual(fn.parse(data.input), data.output));
+		t.deepEqual(fn.parse(data.input), data.output);
 	});
 });
