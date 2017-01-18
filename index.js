@@ -53,7 +53,7 @@ function BemParseModf( source ){
 			}
 		}
 	return result;
-	}«
+	}
 
 var
 sep={
