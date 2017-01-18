@@ -1,118 +1,109 @@
-// `item_mod` -> `item`
-// `item--mod` -> `item`
-function parseName(source) {
-	var result = source;
-	var sep = parseModSep(source);
-
-	if (sep) {
-		result = source.split(sep)[0];
-	}
-
+function BemParseBase( source ){
+	/*=
+	 | {root}__elem--modf_mval
+	 */
+	var
+	result= source,
+	sep= this.sep.modf;
+	if( sep )
+		result= source.split(sep)[0];
 	return result;
-}
-
-// `item_mod` -> `mod`
-// `item--mod` -> `mod`
-function parseModName(source) {
-	var result = '';
-	var sep = parseModSep(source);
-	var div;
-
-	if (sep) {
-		div = source.split(sep);
-		if (div.length > 1) {
+	}
+function BemParseModfName( source ){
+	/*=
+	 | root__elem--{modf}_mval
+	 */
+	var
+	result= '',
+	sep= this.sep.modf,
+	div;
+	if( sep ){
+		div= source.split(sep);
+		if( div.length > 1 ){
 			result = div[1];
+			}
 		}
-	}
-
 	return result;
-}
-
-// `item_mod_val` -> `val`
-function parseModVal(source) {
-	var result = '';
-	var div = source.split('_');
-
-	if (div.length > 2) {
-		result = div[2];
 	}
-
+function BemParseModfVal( source ){
+	/*=
+	 | root__elem--modf_{mval}
+	 */
+	var
+	result= '',
+	div= source.split(this.sep.mval);
+	if( div.length>1 )
+		result= div[1];
 	return result;
-}
-
-// `item_mod` -> `_`
-// `item--mod` -> `--`
-function parseModSep(source) {
-	var result = '';
-
-	if (/_/.test(source)) {
-		result = '_';
-	} else if (/--/.test(source)) {
-		result = '--';
 	}
-
+function BemParseModf( source ){
+	/*=
+	 | root__elem--{modf}_mval
+	 */
+	var
+	result= null,
+	sep= this.sep.modf,
+	name;
+	if( sep ){
+		name = this.ƒn.parseModfName(source);
+		if( name ){
+			var
+			val= this.ƒn.parseModfVal(source)||null;
+			result= {name,val,sep:this.sep.modf};
+			}
+		}
 	return result;
-}
-
-function parseMod(source) {
-	var result = null;
-	var sep = parseModSep(source);
-	var name;
-
-	if (sep) {
-		name = parseModName(source);
-		if (name) {
-			result = {
-				name: name,
-				val: parseModVal(source) || null,
-				sep: sep
-			};
-		}
 	}
 
+var
+sep={
+  elem:'__',
+  modf:'--',
+  mval:'_'
+  },
+BemParse= function( source ){
+	var//@alias[this]
+		self= this;
+	Object.assign(self,{
+	  sep,
+		ƒn:{
+			parseBase:     src=>    BemParseBase.call(self,src),
+			parseModfName: src=>BemParseModfName.call(self,src),
+			parseModfVal:  src=> BemParseModfVal.call(self,src),
+			parseModf:     src=>    BemParseModf.call(self,src),
+			}
+		});
+
+	var result= {};
+	if( !source ) return result;
+
+	//=split block
+	var
+	div=  source.split(self.sep.elem),
+	item= div[0],
+	part= 'root';
+	//+concat name
+		result[part]={ name:self.ƒn.parseBase(item) };
+	//=has elem
+	if( div.length>1 ){
+		//get postfix
+		item= div[1];
+		part= 'elem';
+		//concat postfix
+			result[part]={ name:self.ƒn.parseBase(item) };
+		}
+	//=parse mod
+	var
+	mod= self.ƒn.parseModf(item);
+	if( mod )
+		result[part].modf= mod;
 	return result;
-}
+	};//BemParse()
 
-module.exports = {
-	/**
-	 * BEM data
-	 *
-	 * @param {String} source
-	 * @return {Object}
-	 */
-	parse: function (source) {
-		var result = {};
-
-		if (!source) {
-			return result;
+module.exports= {
+	BemParse,
+	opts(elem='__',modf='--',mval='_'){
+		Object.assign(sep,{elem,modf,mval})
+		return this.BemParse;
 		}
-
-		// Separate block and elem
-		var div = source.split('__');
-
-		var item = div[0];
-		var part = 'block';
-
-		result[part] = {
-			name: parseName(item)
-		};
-
-		// If elem
-		if (div.length > 1) {
-			item = div[1];
-			part = 'elem';
-
-			result[part] = {
-				name: parseName(item)
-			};
-		}
-
-		// Parse mod
-		var mod = parseMod(item);
-		if (mod) {
-			result[part].mod = mod;
-		}
-
-		return result;
-	}
-};
+	};//exports
